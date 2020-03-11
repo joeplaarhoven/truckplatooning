@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">truckPlatooning</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="login_btnLogin">Login</string>
+    <string name="login_lblUsername">Gebruikersnaam:</string>
+    <string name="login_lblPassword">Wachtwoord:</string>
+    <string name="login_lblRegister">Registrer</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Aangemeld</string>
+    <string name="title_PlatoonInfo">Platoon aanmaken</string>
+    <string name="title_profile">Profiel</string>
+    <string name="tvSelectedPlatoon_addTruckInPlatoon">Selecteer de gewenste platoon:</string>
+    <string name="tvLading_addTruckInPlatoon">Lading:</string>
+    <string name="btnAddTruckToPlatoon">Registreer voor platoon</string>
+    <string name="btnAanmeldenVoorPlatoon">Aanmelden voor platoon</string>
+    <string name="btnAddNewPlatoon">Voeg platoon toe</string>
+    <string name="naamtruckInfo">Naam:</string>
+    <string name="textTruckKenteken">Kenteken:</string>
+    <string name="textTruckMerk">Truckmerk:</string>
+    <string name="textTruckWachtwoord">Wachtwoord:</string>
+    <string name="btnEditTruckInfo">Wijzig informatie</string>
+</resources>
