@@ -2,10 +2,8 @@ package com.example.truckplatooningkans352;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,19 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.truckplatooningkans352.DatabaseHelper.DatabaseHelperPlatoonInformatie;
+import com.example.truckplatooningkans352.DatabaseHelper.DatabaseHelperTruckInPlatoon;
 import com.example.truckplatooningkans352.GetSet.PlatoonInformatie;
-import com.example.truckplatooningkans352.GetSet.TruckInPlatoon;
 import com.example.truckplatooningkans352.GetSet.VolgTruck;
 
-import org.w3c.dom.Text;
-
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.IntStream;
 
 public class AddTruckToPlatoon extends AppCompatActivity {
 
@@ -57,9 +50,6 @@ public class AddTruckToPlatoon extends AppCompatActivity {
 
         LinearRegression lr = new LinearRegression(targetY, targetX);
 
-        Double totaalBrandstof = lr.predict(500);
-
-        Double roundedDouble = Math.round(totaalBrandstof * 100.0) / 100.0;
 
 
         alPlatoons = new ArrayList<PlatoonInformatie>();
@@ -95,16 +85,24 @@ public class AddTruckToPlatoon extends AppCompatActivity {
 
         final String kenteken = getIntent().getExtras().getString("kenteken");
 
-
         registerTruck.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        final EditText afstand = findViewById(R.id.etAfstand_addTruckInPlatoon);
+                        String afstandSt = afstand.getText().toString();
+
+
+                        double afstandD = Double.parseDouble(afstandSt);
+
+                        Double totaalBrandstof = lr.predict(afstandD);
+
+                        Double roundedDouble = Math.round(totaalBrandstof * 100.0) / 100.0;
                         final EditText ladingET = findViewById(R.id.etLading_addTruckInPlatoon);
                         String lading = ladingET.getText().toString();
-                        VolgTruck trInPlat = new VolgTruck(kenteken, "Volgtruck", rijrichting, vertrekDatum, lading, roundedDouble);
-                        dbHelperTruckInPlatoon.addTruckInPlatoon(trInPlat);
-                        
+                        VolgTruck vt = new VolgTruck(kenteken, "Volgtruck", rijrichting, vertrekDatum, lading, roundedDouble);
+                        dbHelperTruckInPlatoon.addVolgTruck(vt);
+
                     }
                 });
 

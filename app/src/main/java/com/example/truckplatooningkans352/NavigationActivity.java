@@ -1,14 +1,20 @@
 package com.example.truckplatooningkans352;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import java.util.List;
 
 public class NavigationActivity extends AppCompatActivity {
 
@@ -26,5 +32,20 @@ public class NavigationActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.crud_menu, menu);
+        Fragment homeFrag = getSupportFragmentManager().findFragmentById(R.id.navigation_home);
+        Fragment truckFrag = getSupportFragmentManager().findFragmentById(R.id.navigation_home);
+        Fragment platoonFrag = getSupportFragmentManager().findFragmentById(R.id.navigation_home);
+
+
+        
+        return true;
+    }
+
+
 
 }

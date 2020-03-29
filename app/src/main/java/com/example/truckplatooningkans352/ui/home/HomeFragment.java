@@ -4,25 +4,22 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.truckplatooningkans352.AddTruckToPlatoon;
-import com.example.truckplatooningkans352.DatabaseHelperTruckInPlatoon;
-import com.example.truckplatooningkans352.GetSet.PlatoonInformatie;
+import com.example.truckplatooningkans352.DatabaseHelper.DatabaseHelperTruckInPlatoon;
+import com.example.truckplatooningkans352.GetSet.LeiderTruck;
 import com.example.truckplatooningkans352.GetSet.TruckInPlatoon;
-import com.example.truckplatooningkans352.MainActivity;
-import com.example.truckplatooningkans352.NavigationActivity;
+import com.example.truckplatooningkans352.GetSet.VolgTruck;
 import com.example.truckplatooningkans352.R;
 
 import java.util.ArrayList;
@@ -65,15 +62,38 @@ public class HomeFragment extends Fragment {
 
     public void populateList(String personalKenteken){
         Cursor data = dbHelper.getData(personalKenteken);
+        TruckInPlatoon p = null;
+        String geldTerug = "", besparing = "";
+
         while (data.moveToNext()){
             String kenteken = data.getString(0);
             String platoonRol = data.getString(1);
             String rijRichting = data.getString(2);
             String vertrekDatum = data.getString(3);
             String lading = data.getString(4);
-            TruckInPlatoon p = new TruckInPlatoon(kenteken, platoonRol, rijRichting, vertrekDatum, lading);
+            try{
+                besparing  = data.getString(5);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try{
+                geldTerug = data.getString(6);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            if(geldTerug == null){
+                p = new VolgTruck(kenteken, platoonRol, rijRichting, vertrekDatum, lading, Double.parseDouble(besparing));
+            } else if (besparing == null) {
+                p = new LeiderTruck(kenteken, platoonRol, rijRichting, vertrekDatum, lading, Double.parseDouble(geldTerug));
+            }
+
+
             alTrucksInPlatoon.add(p);
         }
 
     }
+
+
 }

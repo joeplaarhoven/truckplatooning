@@ -25,4 +25,5 @@
     <string name="textTruckMerk">Truckmerk:</string>
     <string name="textTruckWachtwoord">Wachtwoord:</string>
     <string name="btnEditTruckInfo">Wijzig informatie</string>
+    <string name="tvAfstand_addTruckInPlatoon">Afstand:</string>
 </resources>

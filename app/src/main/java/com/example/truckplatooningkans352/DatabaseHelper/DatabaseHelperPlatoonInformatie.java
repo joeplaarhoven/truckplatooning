@@ -1,4 +1,4 @@
-package com.example.truckplatooningkans352;
+package com.example.truckplatooningkans352.DatabaseHelper;
 
 import android.content.ContentValues;
 import android.content.Context;

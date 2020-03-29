@@ -10,7 +10,7 @@
         android:layout_height="44dp"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textNoSuggestions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,35 +30,91 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:text="Vertrekdatum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PlatInfo_rijrichtingET" />
 
-    <CalendarView
+    <!--    <CalendarView-->
+<!--        android:id="@+id/PlatInfo_vertrekCal"-->
+<!--        android:layout_width="394dp"-->
+<!--        android:layout_height="312dp"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:scaleX="0.9"-->
+<!--        android:scaleY="0.9"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.481"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+    <EditText
         android:id="@+id/PlatInfo_vertrekCal"
-        android:layout_width="401dp"
-        android:layout_height="261dp"
-        android:layout_marginStart="4dp"
+        android:layout_width="326dp"
+        android:layout_height="44dp"
         android:layout_marginTop="12dp"
-        android:scaleX="0.9"
-        android:scaleY="0.9"
+        android:editable="false"
+        android:inputType="textNoSuggestions"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/PlatInfo_addPlatoonBtn"
-        android:layout_width="355dp"
+        android:layout_width="326dp"
         android:layout_height="42dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="@string/btnAddNewPlatoon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLading_newPlatoon" />
+
+    <TextView
+        android:id="@+id/tvAfstand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Afstand:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PlatInfo_vertrekCal" />
+
+    <EditText
+        android:id="@+id/etAfstand_newPlatoon"
+        android:layout_width="326dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textNoSuggestions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAfstand" />
+
+    <EditText
+        android:id="@+id/etLading_newPlatoon"
+        android:layout_width="326dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:inputType="textNoSuggestions"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Lading:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAfstand_newPlatoon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

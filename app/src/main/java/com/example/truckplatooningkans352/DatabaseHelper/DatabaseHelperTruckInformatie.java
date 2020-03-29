@@ -1,4 +1,4 @@
-package com.example.truckplatooningkans352;
+package com.example.truckplatooningkans352.DatabaseHelper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -61,22 +61,25 @@ public class DatabaseHelperTruckInformatie extends SQLiteOpenHelper {
         return cursor.getCount() > 0;
     }
 
-    public Cursor getData() {
+    public Cursor getData(String kenteken) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "Select * from " + TABLE_NAME;
+        String query = "Select * from " + TABLE_NAME + " where " + COL_KENTEKEN + " = '" + kenteken + "'";
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }
 
-//    public Integer editData(){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//        cv.put("Field1","Bob"); //These Fields should be your String values of actual column names
-//        cv.put("Field2","19");
-//        cv.put("Field2","Male");
-//
-//        db.update(TABLE_NAME, cv, COL_KENTEKEN = kenteken, null);
-//    }
+    public Boolean updateTruckInfo(String kenteken, String kentekenOld, String naam, String merk) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put(COL_KENTEKEN,kenteken);
+        cv.put(COL_MERK,merk);
+        cv.put(COL_CHAFFEUR,naam);
+
+        Integer result = db.update(TABLE_NAME, cv, COL_KENTEKEN + " = '" + kentekenOld + "'", null);
+        return result != 1;
+    }
+
 
 }
 

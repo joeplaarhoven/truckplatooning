@@ -3,14 +3,13 @@ package com.example.truckplatooningkans352;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.truckplatooningkans352.DatabaseHelperTruckInformatie;
+import com.example.truckplatooningkans352.DatabaseHelper.DatabaseHelperTruckInformatie;
 import com.example.truckplatooningkans352.GetSet.TruckInformatie;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -47,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String wachtwoordHer = wachtwoordHerET.getText().toString();
 
                 if(wachtwoord.equals(wachtwoordHer)){
-                    TruckInformatie tInfo = new TruckInformatie(naam, kenteken, merk, wachtwoord);
+                    TruckInformatie tInfo = new TruckInformatie(kenteken, naam, merk, wachtwoord);
                     Boolean bool = dbHelper.addTruckInformatie(tInfo);
                     if(bool){
                         Context context = getApplicationContext();

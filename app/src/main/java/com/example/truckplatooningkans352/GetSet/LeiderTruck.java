@@ -1,18 +1,18 @@
 package com.example.truckplatooningkans352.GetSet;
 
 public class LeiderTruck extends TruckInPlatoon{
-    private Integer korting;
+    private Double geldTerug;
 
-    public LeiderTruck(String truckKenteken, String platoonRol, String rijRichting, String vertrekDatum, String lading, Integer korting) {
+    public LeiderTruck(String truckKenteken, String platoonRol, String rijRichting, String vertrekDatum, String lading, Double geldTerug) {
         super(truckKenteken, platoonRol, rijRichting, vertrekDatum, lading);
-        this.korting = korting;
+        this.geldTerug = geldTerug;
     }
 
-    public Integer getKorting() {
-        return korting;
+    public Double getGeldTerug() {
+        return geldTerug;
     }
 
-    public void setKorting(Integer korting) {
-        this.korting = korting;
+    public void setGeldTerug(Double korting) {
+        this.geldTerug = geldTerug;
     }
 }
